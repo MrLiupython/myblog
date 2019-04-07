@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block base %}
+<ul>
+   {% for index in indexs %}
+       <li>
+         <a href="{% url(list_page) %}?kind={{ index.kind }}">
+         {{ index.kind }}
+         </a>
+       </li>
+   {% endfor %}
+</ul>
+{% endblock %}
