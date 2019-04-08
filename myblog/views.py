@@ -37,4 +37,20 @@ def blog_page(request):
         request,
         'myblog/blog.html',
         {'blog': blog, 'text': text}
-         
+        )
+
+
+def blog_edit(request):
+    blog_id = request.GET.get('_id')
+    if blog_id:
+        blog = Blog.get(id=blog_id)
+        text = markdown(blog.text.text)
+    else:
+        blog = None
+        text = None
+    return render(
+        request,
+        'myblog/edit.html',
+        {'blog': blog, 'text': text}
+        )
+

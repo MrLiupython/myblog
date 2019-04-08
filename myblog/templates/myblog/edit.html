@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block base %}
+<form action="{% url(blog_update) %}" method="post">
+  {% if blog %}
+  标题：<input type="text" placeholder="{{ blog.title }}" name="title" />
+  <br >
+  
+  类别：<input type="text" placeholder="{{ blog.kind.kind }}" name="kind" />
+  <br >
+  
+  <textarea cols="200", rows="100">{{ text }}</textarea>
+  <br >
+  
+  <input type="submit" name="提交" />
+  {% else %}
+  标题：<input type="text" placeholder="title" name="title" />
+  <br >
+  
+  类别：<input type="text" placeholder="kind" name="kind" />
+  <br >
+  
+  <textarea cols="200", rows="100">>text}</textarea>
+  <br >
+  {% endif %}
+</form>
+{% endblock %}
