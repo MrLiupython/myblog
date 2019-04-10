@@ -6,6 +6,9 @@ class Index(models.Model):
         primary_key=True,
         default='others')
 
+class Text(models.Model):
+    text = models.TextField()
+
 class Blog(models.Model):
     id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=16)
@@ -18,7 +21,4 @@ class Blog(models.Model):
     text = models.OneToOneField(
         Text,
         on_delete=models.CASCADE)
-
-class Text(models.Model):
-    content = models.TextField()
     

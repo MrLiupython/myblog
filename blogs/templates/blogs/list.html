@@ -1,10 +1,10 @@
-{% extend "base.html" %}
+{% extends "blogs/base.html" %}
 
 {% block base %}
 <ul>
   {% for blog in blogs %}
       <li>
-        <a href="{% url('blog_page') %}?_id={{ blog.id }}">
+        <a href="{% url 'blogs:blog' %}?_id={{ blog.id }}">
         {{ blog.title }}
         </a>
   {% endfor %}

@@ -1,27 +1,32 @@
-{% extends "base.html" %}
+{% extends "blogs/base.html" %}
 
 {% block base %}
-<form action="{% url(blog_update) %}" method="post">
   {% if blog %}
+<form action="{% url 'blogs:update' %}" method="post">
+  {% csrf_token %}
   标题：<input type="text" placeholder="{{ blog.title }}" name="title" />
   <br >
   
   类别：<input type="text" placeholder="{{ blog.kind.kind }}" name="kind" />
   <br >
   
-  <textarea cols="200", rows="100">{{ text }}</textarea>
+  <input name="_id" value="{{ blog.id }}" type="hidden" />
+  
+  <textarea cols="200", rows="100", name="text">{{ text }}</textarea>
   <br >
   
-  <input type="submit" name="提交" />
   {% else %}
+<form action="{% url 'blogs:create' %}" method="post">
+  {% csrf_token %}
   标题：<input type="text" placeholder="title" name="title" />
   <br >
   
   类别：<input type="text" placeholder="kind" name="kind" />
   <br >
   
-  <textarea cols="200", rows="100">>text}</textarea>
+  <textarea cols="200", rows="100", name="text">{{ text }}</textarea>
   <br >
   {% endif %}
+  <input type="submit" />
 </form>
 {% endblock %}

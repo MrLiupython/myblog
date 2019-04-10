@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'myblog',
+    'blogs.apps.BlogsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'myblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,11 +77,12 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'user',
-        'PASSWORD': 'pwd',
+        'NAME': 'myblog',
+        'USER': 'name',
+        'PASSWORD': 'paws',
         'HOST': 'localhost',
         'PORT': '3306',
-        'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'
+        'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }
 }
 

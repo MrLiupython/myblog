@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-class BaseTable:
+class Base:
     def add(self, **kwarg):
         """插入单条数据"""
 
